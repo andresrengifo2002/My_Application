@@ -13,19 +13,16 @@ public class Pokemon {
 
 
     }
-    public void getnumber(){
+    public int getnumber(){
 
-        return;
+        return number;
     }
     public void SetName(String name) {
 
         this.name = name;
     }
 
-    public String
-
-
-    getName() {
+    public String getName() {
 
         return name;
     }

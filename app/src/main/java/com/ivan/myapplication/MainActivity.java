@@ -1,9 +1,14 @@
 package com.ivan.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,16 +20,39 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText name, number;
+
+    private ImageView url;
+
+    private RecyclerView recyclerView ;
+
+    private ListapokemonAdapter listaPokemonAdapter;
+
     Retrofit retrofit;
+
+    private  int offset;
 
     private final String TAG="pokeapi";
 
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView = findViewById((R.id.reclyview));
+        name = findViewById(R.id.textView);
+
+        listaPokemonAdapter = new ListapokemonAdapter(this);
+        recyclerView.setAdapter(listaPokemonAdapter);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL, true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
         retrofit=new Retrofit.Builder().
                 //base de la url
                 baseUrl("https://pokeapi.co/api/v2/").
@@ -33,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 //comenzar
                 build();
         obtenerDatos();
+        offset=0;
 
     }
 
@@ -51,9 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         Log.e(TAG,"pokemon: " +p.getName());
 
                     }
+                    listaPokemonAdapter.add((ArrayList<Pokemon>) listaPokemon);
                 }
                 else {
-
+                    Log.e(TAG,"onResponse: " + response.errorBody());
                 }
             }
 

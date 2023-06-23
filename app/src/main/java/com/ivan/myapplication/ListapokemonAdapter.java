@@ -1,7 +1,6 @@
 package com.ivan.myapplication;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +8,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class Listapokemonaadapter extends RecyclerView.Adapter<Listapokemonaadapter.ViewHolder> {
-    private Listapokemonaadapter listaPokemonAdapter;
+public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapter.ViewHolder> {
+    private ListapokemonAdapter listaPokemonAdapter;
 
     private RecyclerView recyclerView;
     private ArrayList<Pokemon> dataset;
+
     private Context context;
+
+    private MainActivity localDataSet;
+
+    private String[] DataSet;
+
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -37,7 +39,7 @@ public class Listapokemonaadapter extends RecyclerView.Adapter<Listapokemonaadap
         }
     }
 
-    public Listapokemonaadapter(Context context) {
+    public ListapokemonAdapter(Context context) {
         this.context = context;
         dataset = new ArrayList<>();
     }
