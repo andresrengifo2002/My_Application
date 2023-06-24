@@ -58,12 +58,8 @@ public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapte
         Pokemon p=dataset.get(position);
         holder.name.setText(p.getName()); //envio del nombre al texto
 
-        String url ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
-
         Glide.with(context)
-                .load(url)
-                .error(R.drawable.error1)
-                .placeholder(R.drawable.descarga)
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6"+p.getNumber()+".png")
                 .into(holder.imageView);
     }
 
