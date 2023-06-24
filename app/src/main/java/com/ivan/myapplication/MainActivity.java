@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 //bien
                 if (response.isSuccessful()){
                     PokemonRespuesta pokemonRespuesta = response.body();
-                    List<Pokemon> listaPokemon = pokemonRespuesta.getResult();
+                    List<Pokemon> listaPokemon = pokemonRespuesta.getResults();
                     for (int i=0;i<listaPokemon.size();i++ ){
                         Pokemon p=listaPokemon.get(i);
                         Log.e(TAG,"pokemon: " +p.getName());

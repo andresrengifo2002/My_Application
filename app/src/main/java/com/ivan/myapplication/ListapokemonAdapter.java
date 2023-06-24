@@ -20,12 +20,6 @@ public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapte
 
     private Context context;
 
-    private MainActivity localDataSet;
-
-    private String[] DataSet;
-
-
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
@@ -35,7 +29,8 @@ public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.imageView);
+            name = itemView.findViewById(R.id.textView);
+            imageView = itemView.findViewById(R.id.imageView);
         }
     }
 
