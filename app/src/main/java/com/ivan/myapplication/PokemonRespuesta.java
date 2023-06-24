@@ -5,17 +5,13 @@ import java.util.List;
 
 public class PokemonRespuesta {
 
-    private List<Pokemon> Results = new ArrayList<Pokemon>();
+    private List<Pokemon> results = new ArrayList<Pokemon>();
 
     public List<Pokemon> getResults() {
-        return Results;
+        return results;
     }
 
     public void setResults(List<Pokemon> results) {
-        Results = results;
+        this.results = results;
     }
-
-
-
-
 }

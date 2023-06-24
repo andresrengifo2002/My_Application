@@ -21,13 +21,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText name, number;
 
     private ImageView url;
 
     private RecyclerView recyclerView ;
 
-    private ListapokemonAdapter listaPokemonAdapter;
+    ListapokemonAdapter listaPokemonAdapter;
 
     Retrofit retrofit;
 
@@ -37,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById((R.id.reclyview));
-        name = findViewById(R.id.textView);
+
 
         listaPokemonAdapter = new ListapokemonAdapter(this);
         recyclerView.setAdapter(listaPokemonAdapter);
@@ -60,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 addConverterFactory(GsonConverterFactory.create()).
                 //comenzar
                 build();
+
+
+        url = findViewById(R.id.imagenGlide);
         obtenerDatos();
         offset=0;
 
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     private void obtenerDatos() {
         PokeapiService service = retrofit.create(PokeapiService.class);
         Call<PokemonRespuesta> pokemonRespuestaCall = service.obtenerListaPokemon();
+
         pokemonRespuestaCall.enqueue(new Callback<PokemonRespuesta>() {
             @Override
             public void onResponse(Call<PokemonRespuesta> call, Response<PokemonRespuesta> response) {
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     PokemonRespuesta pokemonRespuesta = response.body();
                     List<Pokemon> listaPokemon = pokemonRespuesta.getResults();
                     for (int i=0;i<listaPokemon.size();i++ ){
-                        Pokemon p=listaPokemon.get(i);
+                        Pokemon p = listaPokemon.get(i);
                         Log.e(TAG,"pokemon: " +p.getName());
 
                     }

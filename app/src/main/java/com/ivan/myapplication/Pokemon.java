@@ -5,34 +5,27 @@ public class Pokemon {
     private String name;
     private String url;
 
-    public void SetNumber(int number) {
-
-        this.number = number;
-
-
-
-
-    }
-    public int getnumber(){
-
+    public int getNumber() {
         return number;
     }
-    public void SetName(String name) {
 
-        this.name = name;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getName() {
-
         return name;
     }
-    public void SetUrl(String url) {
 
-        this.url = url;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUrl() {
-
         return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

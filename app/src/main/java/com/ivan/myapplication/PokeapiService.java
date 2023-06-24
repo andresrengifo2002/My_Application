@@ -5,5 +5,5 @@ import retrofit2.http.GET;
 
 public interface PokeapiService {
     @GET("pokemon")
-    Call<PokemonRespuesta>obtenerListaPokemon();
+    Call<PokemonRespuesta> obtenerListaPokemon();
 }

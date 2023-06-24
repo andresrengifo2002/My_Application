@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapter.ViewHolder> {
+
     private ListapokemonAdapter listaPokemonAdapter;
 
     private RecyclerView recyclerView;
@@ -29,7 +30,7 @@ public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.textView);
+            name = itemView.findViewById(R.id.textView3);
             imageView = itemView.findViewById(R.id.imageView);
         }
     }
