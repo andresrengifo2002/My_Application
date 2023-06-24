@@ -6,7 +6,9 @@ public class Pokemon {
     private String url;
 
     public int getNumber() {
-        return number;
+        String[] urlPartes=url.split("/");
+        int id= Integer.parseInt( urlPartes[urlPartes.length-1]);
+        return id;
     }
 
     public void setNumber(int number) {

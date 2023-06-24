@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapter.ViewHolder> {
@@ -55,6 +57,14 @@ public class ListapokemonAdapter extends RecyclerView.Adapter<ListapokemonAdapte
     public void onBindViewHolder(ViewHolder holder, int position){
         Pokemon p=dataset.get(position);
         holder.name.setText(p.getName()); //envio del nombre al texto
+
+        String url ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
+
+        Glide.with(context)
+                .load(url)
+                .error(R.drawable.error1)
+                .placeholder(R.drawable.descarga)
+                .into(holder.imageView);
     }
 
     public void add(ArrayList<Pokemon> listaPokemon){
